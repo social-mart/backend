@@ -1,4 +1,5 @@
 rootProject.name = "backend"
+includeBuild("build-plugins")
 
 includePath(":gateway", "gateway")
 includePath(":gateway-domain", "gateway/domain")

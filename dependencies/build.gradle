@@ -1,0 +1,43 @@
+// save all the project dependencies to gradle rootProject's extra property
+rootProject.ext {
+    versions = [:]
+    libraries = [:]
+}
+versions.testContainers = "1.18.0"
+versions.sentry = "1.7.30"
+versions.shedlock = "5.2.0"
+versions.openapi = "1.7.0"
+
+// Dependencies (some rely on shared versions, some are shared between projects)
+libraries.aspectjWeaver = "org.aspectj:aspectjweaver:1.9.19"
+libraries.assertjCore = "org.assertj:assertj-core:3.24.2"
+libraries.mockk = "io.mockk:mockk:1.13.5"
+libraries.mockkSpringBoot = "com.ninja-squad:springmockk:4.0.2"
+libraries.junit5Bom = "org.junit:junit-bom:5.9.2"
+libraries.junit5Jupiter = "org.junit.jupiter:junit-jupiter"
+libraries.junit5JupiterApi = "org.junit.jupiter:junit-jupiter-api"
+libraries.junit5JupiterEngine = "org.junit.jupiter:junit-jupiter-engine"
+libraries.junit5JupiterParams = "org.junit.jupiter:junit-jupiter-params"
+libraries.kotlinLogging = "io.github.microutils:kotlin-logging:3.0.5"
+libraries.logbackClassic = "ch.qos.logback:logback-classic:1.2.11"
+libraries.logstashLogbackEncoder = "net.logstash.logback:logstash-logback-encoder:7.3"
+libraries.postgresql = "org.postgresql:postgresql:42.6.0"
+libraries.dbRider = "com.github.database-rider:rider-junit5:1.36.0"
+libraries.flywayCore = "org.flywaydb:flyway-core:9.16.3"
+libraries.flywaySpringTest = "org.flywaydb.flyway-test-extensions:flyway-spring-test:9.5.0"
+libraries.testContainers = "org.testcontainers:testcontainers:${versions.testContainers}".toString()
+libraries.testContainerPostgreSQL = "org.testcontainers:postgresql:${versions.testContainers}".toString()
+libraries.awsJavaSDKBom = "com.amazonaws:aws-java-sdk-bom:1.12.455"
+libraries.awsJavaSDKATHENA = "com.amazonaws:aws-java-sdk-athena"
+libraries.awsJavaSDKRDS = "com.amazonaws:aws-java-sdk-rds"
+libraries.awsJavaSDKSTS = "com.amazonaws:aws-java-sdk-sts"
+libraries.jakartaServletApi = "jakarta.servlet:jakarta.servlet-api:4.0.4"
+libraries.okhttp = "com.squareup.okhttp3:okhttp:4.11.0"
+libraries.jacksonModuleKotlin = "com.fasterxml.jackson.module:jackson-module-kotlin"
+libraries.micrometerPrometheus = "io.micrometer:micrometer-registry-prometheus:1.10.6"
+libraries.jakartaTransaction = "jakarta.transaction:jakarta.transaction-api:2.0.1"
+libraries.awsJavaSDKS3 = "com.amazonaws:aws-java-sdk-s3"
+libraries.shedlockSpring = "net.javacrumbs.shedlock:shedlock-spring:${versions.shedlock}".toString()
+libraries.shedlockJdbcTemplate = "net.javacrumbs.shedlock:shedlock-provider-jdbc-template:${versions.shedlock}".toString()
+libraries.springdocOpenapiKotlin = "org.springdoc:springdoc-openapi-kotlin:${versions.openapi}".toString()
+libraries.springdocOpenapiWebmvcCore = "org.springdoc:springdoc-openapi-webmvc-core:${versions.openapi}".toString()
