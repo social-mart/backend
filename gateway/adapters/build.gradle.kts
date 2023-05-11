@@ -10,7 +10,10 @@ dependencies {
     @Suppress("UNCHECKED_CAST")
     val projectDependencies = rootProject.ext["libraries"] as Map<String, String>
 
+    implementation(project(":gateway-domain"))
+
     implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 }
