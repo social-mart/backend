@@ -3,12 +3,7 @@ plugins {
     id("project.kotlin-conventions")
     id("project.springboot-conventions")
     id("project.common-dependencies-conventions")
-//    application
 }
-
-// application {
-//    mainClass.set("io.mart.ApplicationKt")
-// }
 
 dependencies {
     // get the central dependencies library
@@ -21,4 +16,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+}
+
+tasks {
+    withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
+        this.enabled = true // this is important to build a bootable jar with all dependencies and jars of submodules
+        this.archiveFileName.set("${archiveBaseName.get()}-${archiveVersion.get()}-boot.${archiveExtension.get()}")
+    }
 }

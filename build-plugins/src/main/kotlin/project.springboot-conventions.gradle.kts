@@ -8,6 +8,18 @@ plugins {
 }
 tasks {
     withType<BootJar> {
+        /**
+         * Whenever you include this plugin-convention to any module, you just state that this module will have Spring,
+         * but it will not be eventually assembled as Spring boot jar with all its dependencies.
+         * E.g. in "application" module, which is an entry point to Sprint application, we need to explicitly set enabled=true
+         * to eventually have a bootable jar
+         * tasks {
+         *     withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
+         *         this.enabled = true
+         *         this.archiveFileName.set("${archiveBaseName.get()}-${archiveVersion.get()}-boot.${archiveExtension.get()}")
+         *     }
+         * }
+         */
         this.enabled = false
     }
 }
