@@ -12,7 +12,7 @@ Execute gradle command for corresponding module ("*-application" is a module for
 ### as Docker container
 ```shell
 ./gradlew build
-cd gateway/application
+cd apps/gateway/application
 docker build -t amartyushov/gateway:0.0.1 .
 (`docker images` to check locally built images)
 docker login

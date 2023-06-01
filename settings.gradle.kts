@@ -1,11 +1,11 @@
 rootProject.name = "backend"
 includeBuild("build-plugins")
 
-includePath(":gateway-application", "gateway/application")
+includePath(":gateway-application", "apps/gateway/application")
 
-includePath(":users-application", "users/application")
-includePath(":users-domain", "users/domain")
-includePath(":users-adapters", "users/adapters")
+includePath(":users-application", "apps/users/application")
+includePath(":users-domain", "apps/users/domain")
+includePath(":users-adapters", "apps/users/adapters")
 
 fun includePath(moduleName: String, path: String) {
     include(moduleName)
