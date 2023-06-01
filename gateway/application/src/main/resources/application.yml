@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: gateway
+
+  main:
+    web-application-type: reactive  # in order to skip Spring MVC in the classpath
+
+  cloud:
+    gateway:
+      routes:
+        - id: users-route
+          uri: ${USER_SERVICE_URL:http://localhost:7070}
+          predicates: # when this route is activated
+            - Path=/users/**
+          filters:
+            - AddRequestHeader=X-Tenant,acme
+            - AddResponseHeader=X-Bla,yes

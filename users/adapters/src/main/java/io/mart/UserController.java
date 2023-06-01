@@ -17,8 +17,8 @@ public class UserController {
 		this.userRepository = userRepository;
 	}
 	
-	@GetMapping("/hello")
-	public String sayHello() {
+	@GetMapping("/users")
+	public String getUsers() {
 		return userRepository.getUser("bla");
 	}
 }

@@ -18,3 +18,14 @@ docker build -t amartyushov/gateway:0.0.1 .
 docker login
 docker push amartyushov/gateway:0.0.1
 ```
+
+
+# Tooling
+## httpie
+Cli for "normal" curl  
+`brew install httpie`  
+https://httpie.io/cli
+### Examples
+```shell
+http :8080/users
+```

@@ -10,12 +10,18 @@ dependencies {
     @Suppress("UNCHECKED_CAST")
     val projectDependencies = rootProject.ext["libraries"] as Map<String, String>
 
-    implementation(project(":gateway-adapters"))
+    // gateway specific
+    implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
+    implementation("org.springframework.cloud:spring-cloud-starter-gateway")
 
-    implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    testImplementation("org.springframework.cloud:spring-cloud-starter-contract-stub-runner")
+}
+
+extra["springCloudVersion"] = "2022.0.3"
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+    }
 }
 
 tasks {
